@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="FileMapper">
+
+
+    <select id="selectFilesByAttachmentId" parameterType="java.lang.Integer" resultType="com.cydinfo.fudms.vo.FileVo">
+        select * from TB_FILE where attachment_id=#{attachment_id}
+    </select>
+
+    <select id="fileSelectDetail" parameterType="map" resultType="com.cydinfo.fudms.vo.FileVo">
+        select * from TB_FILE where id=#{id} and attachment_id=#{attachmentId}
+    </select>
+
+</mapper>

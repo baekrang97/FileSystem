@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<!-- DownloadFileMapper.xml -->
+
+<mapper namespace="DownloadFileMapper">
+
+    <!-- SQL 쿼리 -->
+
+    <!-- 모든 파일을 조회하는 쿼리 -->
+    <select id="selectAllInfo" resultType="FileDownloadVo">
+        select id,name,path,size,type,hash from TB_FILE
+    </select>
+
+    <!-- 아이디가 일치하는 파일만 조회하는 쿼리 -->
+    <select id="selectIdInfo" parameterType="java.lang.Long" resultType="FileDownloadVo">
+        select id,name,path,size,type,hash from TB_FILE
+        where id = #{id}
+    </select>
+
+    <!-- 첨부 아이디가 일치하는 파일들을 조회하는 쿼리 -->
+    <select id="selectAttachmentInfo" parameterType="java.lang.Long" resultType="FileDownloadVo">
+        select id,name,path,size,type,hash from TB_FILE
+        where attachment_id = #{attachment_id}
+    </select>
+
+    <!-- 아이디가 일치하는 파일들을 조회하는 쿼리 -->
+    <select id="selectBatchIdInfo" parameterType="java.util.Map" resultType="FileDownloadVo">
+        select id, name, path, size, type, hash from TB_FILE
+        where id in
+        <foreach collection="list" item="item" index="index" open="(" close=")" separator=",">
+            #{item.id}
+        </foreach>
+    </select>
+
+</mapper>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="AttachmentMapper">
+
+    <select id="selectAllAttachments" resultType="com.cydinfo.fudms.vo.AttachmentVo">
+        select * from TB_ATTACHMENT
+    </select>
+
+    <select id="selectAttachmentById" parameterType="java.lang.Integer" resultType="com.cydinfo.fudms.vo.AttachmentVo">
+        select * from TB_ATTACHMENT where id=#{id}
+    </select>
+
+
+    <select id="getTotalCount" resultType="int">
+        SELECT COUNT(*) FROM TB_ATTACHMENT
+    </select>
+
+    <select id="getPagedData" resultType="com.cydinfo.fudms.vo.AttachmentVo">
+        SELECT * FROM TB_ATTACHMENT
+        LIMIT #{start}, #{pageSize}
+    </select>
+
+
+</mapper>

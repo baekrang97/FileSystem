@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>File Management</title>
+    <link rel='stylesheet' href='css/bootstrap.min.css'>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css'>
+    <script src="js/jquery-3_6_0.min.js"></script>
+    <link rel="stylesheet" href="css/attachment.css">
+</head>
+
+<body>
+<div class="file-manager-wrapper">
+
+
+    <!--search-->
+    <div class="file-manager-header">
+        <h1><i class="fa fa-folder" aria-hidden="true"></i> File Manager</h1>
+        <div class="form-group">
+            <input type="search" class="form-control file-manager-search" id="file_search" name="file-search"
+                   placeholder="Search all files">
+            <button class="btn btn-primary search-files-btn"><i class="fa fa-search" aria-hidden="true"></i></button>
+        </div>
+    </div>
+
+    <div class="file-manager-body">
+
+        <div class="file-manager-leftside">
+            <div class="btn btn-primary new-btn">New</div>
+
+            <div class="btn btn-primary download-btn" id="attachmentDownload" style="margin-top: 10px; margin-left: 30%;">attachment download
+
+            </div>
+
+            <ul>
+                <!--attachmentList for-->
+                <tr th:each="attachment : ${attachments}">
+                    <li class="app no-subfolder">
+                        <div class="list-holder clearfix">
+                            <span class="icon-wrapper">
+                                <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                            </span>
+
+                            <div class="list-text-holder">
+                                <input type="checkbox" th:value="${attachment.id}"  name="selectedAttachments"/>
+                                <span th:text="${attachment.name}" class="attachment-name"
+                                      th:attr="data-attachment-id=${attachment.id}"
+                                      style="margin-left: 5px">August Event</span>
+                            </div>
+
+                        </div>
+                    </li>
+                </tr>
+            </ul>
+
+            <div id="pagination">
+                <div class="pagination">
+                    <tr th:each="pageNumber : ${pageNumbers}">
+                        <a th:href="@{/attachmentlist(pageNum=${pageNumber})}" th:text="${pageNumber}"
+                           th:classappend="${pageNumber == currentPage} ? 'active'"></a>
+                    </tr>
+                </div>
+            </div>
+        </div>
+
+        <div class="file-manager-middleholder">
+            <div class="file-manager-filelist">
+                <div class="f-a">
+                    <div class="f-b">
+                        <div class="f-c">
+                            <div class="file-table">
+                                <div class="file-table-header" style="margin-top: -150px; text-align: center">
+                                    <div class="">
+                                        <div class="file-cell">
+                                            <div class="file-name">
+                                                Owner
+                                            </div>
+                                        </div>
+                                        <div class="file-cell">
+                                            <div class="file-owner">
+                                                Des
+                                            </div>
+                                        </div>
+                                        <div class="file-cell">
+                                            <div class="file-date">
+                                                Created Time
+                                            </div>
+                                        </div>
+                                        <div class="file-cell">
+                                            <div class="file-size">
+                                                System
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="file-table-header"
+                                     style="margin-top: -100px; background-color: #FFFFFF ; height: 150px; text-align: center">
+                                    <div class="attachments-detail">
+                                    </div>
+                                </div>
+
+
+                                <div class="file-table-placeholder">
+                                    <div class="file-col"></div>
+                                    <div class="file-col file-owner"></div>
+                                    <div class="file-col file-date"></div>
+                                    <div class="file-col file-size"></div>
+                                </div>
+
+                                <div class="file-table-header" style="text-align: center">
+                                    <div class="">
+                                        <div class="file-cell">
+                                            <div class="file-name">
+                                                Name
+                                            </div>
+                                        </div>
+                                        <div class="file-cell">
+                                            <div class="file-owner">
+                                                Des
+                                            </div>
+                                        </div>
+                                        <div class="file-cell">
+                                            <div class="file-date">
+                                                Type
+                                            </div>
+                                        </div>
+                                        <div class="file-cell">
+                                            <div class="file-size">
+                                                Size
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="file-table-body" style="text-align: center">
+
+                                    <div class="file-row">
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="btn btn-primary download2-btn" id="fileDownload" style="margin-left: 80%; margin-top: 20px">
+                                download2
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="file-manager-rightside">
+
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- partial -->
+<script src="js/bootstrap.js"></script>
+<script src="js/attachmentList.js"></script>
+<script src="js/fileDownload.js"></script>
+<!--<script src="js/paging.js"></script>-->
+
+</body>
+</html>

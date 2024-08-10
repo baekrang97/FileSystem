@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>테스트용 다운로드 페이지</title>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="js/fileDownload.js"></script>
+</head>
+
+<body>
+
+<h1>File Download Test</h1>
+
+<table>
+    <thead>
+
+    <!-- 체크박스, 아이디, 파일명, 파일경로, 파일사이즈(bytes), 파일타입 지정 -->
+    <tr>
+        <th></th>
+        <th>ID </th>
+        <th>File Name</th>
+        <th>File Path</th>
+        <th>File Size (bytes)</th>
+        <th>File Type</th>
+    </tr>
+
+    </thead>
+    <tbody>
+
+    <!-- 각각 받아온 파일별로 테이블에 추가해줌 -->
+    <tr th:each="file : ${files}">
+        <td>
+            <label>
+                <input type="checkbox" class="file-checkbox" th:data-id="${file.id}" th:data-path="${file.path}"/>
+            </label>
+        </td>
+        <td th:text="${file.id}"></td>
+        <td th:text="${file.name}"></td>
+        <td th:text="${file.path}"></td>
+        <td th:text="|${file.size} bytes|"></td>
+        <td th:text="${file.type}"></td>
+    </tr>
+    </tbody>
+
+</table>
+
+<!-- 파일 다운로드 버튼 -->
+<button id="file-test-download">다운로드</button>
+
+<!-- 파일목록 다운로드 버튼 -->
+<button id="attachment-test-download">목록다운로드</button>
+
+</body>
+</html>

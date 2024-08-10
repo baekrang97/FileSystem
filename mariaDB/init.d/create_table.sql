@@ -1,0 +1,35 @@
+CREATE TABLE cydinfo.TB_SYSTEM
+(
+    SYSTEM_ID                 INT             NOT NULL,
+    SYSTEM_NAME               VARCHAR(255)    NOT NULL,
+    PRIMARY KEY (SYSTEM_ID)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE cydinfo.TB_ATTACHMENT
+(
+    ATTACHMENT_ID             INT             NOT NULL,
+    ATTACHMENT_NAME           VARCHAR(255)    NOT NULL,
+    ATTACHMENT_DESCRIPTION    VARCHAR(255),
+    ATTACHMENT_TAG            VARCHAR(255)    NOT NULL,
+    CREATE_DATE               DATETIME        NOT NULL,
+    USER_NAME                 VARCHAR(255)    NOT NULL,
+    SYSTEM_ID                 INT             NOT NULL,
+    ATTACHMENT_STATUS         VARCHAR(10)     NOT NULL,
+    PRIMARY KEY (ATTACHMENT_ID),
+    FOREIGN KEY(SYSTEM_ID) REFERENCES TB_SYSTEM(SYSTEM_ID)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE cydinfo.TB_FILE
+(
+    FILE_ID                   INT             NOT NULL,
+    FILE_NAME                 VARCHAR(255)    NOT NULL,
+    FILE_SIZE                 BIGINT          NOT NULL,
+    FILE_DESCRIPTION          VARCHAR(255),
+    FILE_TYPE                 VARCHAR(255)    NOT NULL,
+    ATTACHMENT_ID             INT             NOT NULL,
+    FILE_STATUS               VARCHAR(10)     NOT NULL,
+    PRIMARY KEY (FILE_ID),
+    FOREIGN KEY(ATTACHMENT_ID) REFERENCES TB_ATTACHMENT(ATTACHMENT_ID)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+

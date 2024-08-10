@@ -1,0 +1,152 @@
+        /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+        .row.content {
+          height: 100%
+        }
+
+        /* Set gray background color and 100% height */
+        .sidenav {
+          /* background-color: #f1f1f1; */
+          background-color: #FFF;
+          height: 100%;
+        }
+
+        /* Set black background color, white text and some padding */
+        footer {
+          background-color: #555;
+          color: white;
+          padding: 15px;
+        }
+
+        /* On small screens, set height to 'auto' for sidenav and grid */
+        @media screen and (max-width: 767px) {
+          .sidenav {
+            height: auto;
+            padding: 15px;
+          }
+
+          .row.content {
+            height: auto;
+          }
+        }
+
+        .m-1 {
+          margin: 0.25rem;
+        }
+
+        .m-2 {
+          margin: 0.5rem;
+        }
+
+        .m-3 {
+          margin: 1rem;
+        }
+
+        .p-0 {
+          padding: 0rem;
+        }
+
+        .p-05 {
+          padding: 0.1rem;
+        }
+
+        .p-1 {
+          padding: 0.25rem;
+        }
+
+        .p-2 {
+          padding: 0.5rem;
+        }
+
+        .p-3 {
+          padding: 1rem;
+        }
+
+        .p-4 {
+          padding: 1.5rem;
+        }
+
+        .p-5 {
+          padding: 3rem;
+        }
+
+        .pb-1 {
+          padding-bottom: 0.25rem;
+        }
+
+        .pt-1 {
+          padding-top: 0.25rem;
+        }
+
+        .pb-1 {
+          padding-bottom: 0.25rem;
+        }
+
+        textarea {
+          resize: none;
+        }
+
+        /* 파일 업로드 부분 */
+        #file-upload-area ul {
+          padding: 20px;
+          margin: 0;
+          font-size: large;
+          color: #5C5C5C;
+        }
+
+        .table {
+          display: table;
+          width: 100%;
+          /* 부모의 너비 */
+          height: 25vh;
+          /* 부모의 높이, 원하는 값으로 변경 가능 */
+        }
+
+        .table-row {
+          display: table-row;
+          width: 100%;
+          /* height: 100%; 행이 부모의 전체 높이를 차지하도록 설정 */
+        }
+
+        .table-cell {
+          display: table-cell;
+          width: 100%;
+          /* 셀이 부모의 전체 너비를 차지하도록 설정 */
+          height: 100%;
+          /* 셀이 부모의 전체 높이를 차지하도록 설정 */
+          vertical-align: middle;
+          /* 선택 사항: 내용을 수직으로 가운데 정렬 */
+          text-align: center;
+          /* 선택 사항: 내용을 수평으로 가운데 정렬 */
+        }
+
+        .panel-body #file-upload-div-area {
+          display: table-row;
+        }
+
+        .panel-body .drag-and-drop-div {
+          background-color: #F8F8F8;
+          border: 2px dashed #5C5C5C;
+          width: 100%;
+          height: auto;
+          color: #5C5C5C;
+          text-align: center;
+          vertical-align: middle;
+          padding: 10px 0px 10px 10px;
+          font-size: large;
+        }
+
+        .panel-body .file-single {
+          font-size: large;
+        }
+
+        #count-file {
+          font-size: large;
+          color: #1D56BC;
+        }
+
+        #file-list {
+          font-size: medium;
+          line-height: 30px;
+          overflow-x: hidden;
+          overflow-y: auto;
+        }

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/fileUpload.css">
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <div class="row title">
+            <div class="col-md-12">
+                <h2><strong>Attachment 업로드</strong></h2>
+                <hr style="margin: 0;">
+            </div>
+        </div>
+
+        <div class="row content">
+
+            <div class="col-md-12 p-3" style="">
+
+                <div class="panel panel-default" style="height: auto">
+
+                    <div class="panel-body">
+                        <div>
+                            <div class="form-group row">
+                                <div class="col-md-12">
+                                    <label for="title">
+                                        <h3><strong>제목</strong></h3>
+                                    </label>
+                                    <input type="text" class="form-control" id="attachment-name">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-3">
+                                    <label for="sysId">
+                                        <h5><strong>시스템아이디</strong></h5>
+                                    </label>
+                                    <input type="text" class="form-control" id="system-id">
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="usr">
+                                        <h5><strong>사용자이름</strong></h5>
+                                    </label>
+                                    <input type="text" class="form-control" id="user-name">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-12">
+                                    <label for="comment">
+                                        <h3><strong>설명</strong></h3>
+                                    </label>
+                                    <textarea class="form-control" rows="14" id="attachment-description"
+                                        placeholder="설명을 적어주세요"></textarea>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-12 p-3" id="file-upload-area">
+
+                <div class="panel panel-default">
+
+                    <div class="panel-body">
+                        <h3>
+                            <strong>
+                                파일 업로드
+                            </strong>
+                        </h3>
+                        <ul class="">
+                            <li>모든 형식의 파일을 등록할 수 있습니다.</li>
+                            <li>파일 1개 당 크기는 1000MB를 초과할 수 없습니다.</li>
+                        </ul>
+                        <div class="table">
+                            <div id="file-upload-div-area" class="table-row">
+                                <div id="file-upload-div" class="drag-and-drop-div table-cell">첨부할 파일을 여기에 끌어다 놓거나, 파일 선택 버튼을
+                                    눌러 파일을 직접 선택해
+                                    주세요.<br><br>
+                                    <button class="btn btn-md btn-primary">📂 Upload Files</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="file-area">
+
+                            <div id="count-file" class="pb-1">
+                                <strong>0개</strong>
+                            </div>
+                            <div id="file-list"></div>
+
+                            <div class="col" style="text-align: right;">
+                                <button class="btn-lg btn-primary" id="upload-button">업로드</button>
+                            </div>
+
+                            <input type="file" name="fileUpload" id="file-upload" style="display: none" multiple />
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="js/fileUpload.js"></script>
+</body>
+
+</html>

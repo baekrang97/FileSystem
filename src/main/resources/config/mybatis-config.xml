@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+    <settings>
+        <!-- Batch 처리 설정 -->
+        <setting name="defaultExecutorType" value="BATCH"/>
+        <!-- 변수명을 CamelCase로 처리해주는 설정-->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+    </settings>
+    <typeAliases>
+        <!-- VO 클래스의 패키지 설정 -->
+        <typeAlias type="com.cydinfo.fudms.vo.FileDownloadVo" alias="FileDownloadVo" />
+    </typeAliases>
+</configuration>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="FileUploadMapper">
+
+    <!-- 조회 -->
+    <insert id="insertAttachment" parameterType="com.cydinfo.fudms.vo.AttachmentVo" useGeneratedKeys="true" keyProperty="id">
+        INSERT
+            INTO TB_ATTACHMENT
+                (
+                  NAME
+                , DESCRIPTION
+                , HASHTAG
+                , CREATE_DATE
+                , USER_NAME
+                , SYSTEM_ID
+                , STATUS
+                )
+            VALUES
+                (
+                  #{name}
+                , #{description}
+                , #{hashTag}
+                , now()
+                , #{userName}
+                , #{systemId}
+                , "Y"
+                )
+    </insert>
+
+    <insert id="insertFiles">
+        INSERT
+            INTO TB_FILE
+                (
+                  NAME
+                , PATH
+                , SIZE
+                , DESCRIPTION
+                , TYPE
+                , MIME_TYPE
+                , ATTACHMENT_ID
+                , STATUS
+                , HASH
+                )
+            VALUES
+        <foreach item="file" collection="list" index="index" separator=",">
+            (
+              #{file.name}
+            , #{file.path}
+            , #{file.size}
+            , #{file.description}
+            , #{file.type}
+            , #{file.mimeType}
+            , #{file.attachmentId}
+            , "Y"
+            , #{file.hash}
+            )
+        </foreach>
+    </insert>
+
+
+
+</mapper>
